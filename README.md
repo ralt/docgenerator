@@ -16,6 +16,11 @@ It lets you write every chapter of your documentation in different markdown file
 
 Then you just have to run it and your files will be generated in a full documentation.
 
+Example
+---
+
+An example can be seen [here][0].
+
 Dependencies
 ---
 
@@ -33,6 +38,7 @@ License
 
 MIT License.
 
+   [0]: https://github.com/Ralt/docgenerator/tree/master/example
    [1]: http://www.htmldoc.org
    [2]: http://www.htmldoc.org/documentation.php/Chapter1InstallingHTMLDOC.html
 
