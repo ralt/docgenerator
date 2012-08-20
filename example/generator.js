@@ -6,7 +6,7 @@ var files = fs.readdirSync( '.' );
 
 files = files.filter( function( file ) {
     return file.substr( -3 ) === '.md';
-});
+}).sort();
 
 generator
     .set( 'format', 'book' )
