@@ -14,3 +14,9 @@ body {
     list-style: none;
 }
 
+.copyright {
+    text-align: center;
+    margin: 20px;
+    font-style: italic;
+}
+
