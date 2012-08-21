@@ -15,6 +15,11 @@ It lets you write every chapter of your documentation in different markdown file
 
 Then you just have to run it and your files will be generated in a full documentation.
 
+Documentation
+---
+
+The documentation can be found [here](http://margaine.com/docgenerator).
+
 Example
 ---
 
