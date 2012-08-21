@@ -55,24 +55,14 @@ module will live.</p>
 <p>Basically, you need to provide docgenerator enough properties
 for it to generate your documentation.</p>
 <p>This is a typical example of what a generator should look like:</p>
-<pre><code>var generator = require( 'docgenerator' ),
-    fs = require( 'fs' ),
-    path = require( 'path' );
+<pre><code>var generator = require( 'docgenerator' );
 
-// Get the files in the folder "original"
-var files = fs.readdirSync( path.join( 'original' ) );
-
-// Filter out to get only the markdown files
-files = files
-    .filter( function( file ) {
-        return file.substr( -3 ) === '.md';
-    })
-    // We need to map the file path though
-    .map( function( file ) {
-        return path.join( 'original', file );
-    })
-    // And sort them so that they're added in a good order
-    .sort();
+// Create the array of original files
+var files = [
+    'original/1. Chapter One.md',
+    'original/2. Chapter Two.md',
+    'original/3. Chapter Three.md'
+];
 
 // Now that we have the files, we can set the options
 // and generate the documentation.
