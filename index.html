@@ -24,7 +24,92 @@ body {
 </style></head><body>
 <div class="title">Official documentation of docgenerator</div>
 
-<div class="toc"></div>
+<div class="toc">
+<ul>
+<li><a href="#1-installation">1. Installation</a></li>
+<li><a href="#2-api-reference">2. API Reference</a><ul>
+<li><a href="#21-introduction">2.1. Introduction</a></li>
+<li><a href="#22-options">2.2. Options</a></li>
+</ul>
+</li>
+<li><a href="#3-themes">3. Themes</a></li>
+</ul>
+</div>
+<h1 id="1-installation">1. Installation</h1>
+<p>docgenerator requires a dependency before anything else:</p>
+<ul>
+<li><a href="http://freewisdom.org/projects/python-markdown/Tables">markdown_py</a>: see <a href="http://freewisdom.org/projects/python-markdown/Installation">the instructions</a> to install on your platform.</li>
+</ul>
+<p>Once you've installed it, you can:</p>
+<pre><code>npm install docgenerator
+</code></pre>
+<p>This will create a <code>node_modules</code> folder, within which the docgenerator
+module will live.</p>
+<h1 id="2-api-reference">2. API Reference</h1>
+<h2 id="21-introduction">2.1. Introduction</h2>
+<p>docgenerator provides two methods:</p>
+<ul>
+<li><code>set</code>: sets a value to a property.</li>
+<li><code>generate</code>: generates the documentation with the properties.</li>
+</ul>
+<p>Basically, you need to provide docgenerator enough properties
+for it to generate your documentation.</p>
+<p>This is a typical example of what a generator should look like:</p>
+<pre><code>var generator = require( 'docgenerator' ),
+    fs = require( 'fs' ),
+    path = require( 'path' );
+
+// Get the files in the folder "original"
+var files = fs.readdirSync( path.join( 'original' ) );
+
+// Filter out to get only the markdown files
+files = files
+    .filter( function( file ) {
+        return file.substr( -3 ) === '.md';
+    })
+    // We need to map the file path though
+    .map( function( file ) {
+        return path.join( 'original', file );
+    })
+    // And sort them so that they're added in a good order
+    .sort();
+
+// Now that we have the files, we can set the options
+// and generate the documentation.
+generator
+    .set( 'option', 'value' )
+    // The "files" options expects an array of files.
+    // Good! We just built this array before :-)
+    .set( 'files', files )
+
+    // Run!
+    .generate();
+</code></pre>
+<h2 id="22-options">2.2. Options</h2>
+<p>Here is the list of options supported and their type expected:</p>
+<ul>
+<li><code>files</code>: Array expected. These are the original markdown files to be converted.</li>
+<li><code>output</code>: String expected. This is the HTML file to generate.</li>
+<li><code>table</code>: Boolean expected. Enables the <a href="http://freewisdom.org/projects/python-markdown/Tables">table extension</a> of markdown_py.</li>
+<li><code>theme</code>: String expected. Chooses the theme to use for the generated documentation.</li>
+<li><code>title</code>: String expected. Sets the title of the documentation.</li>
+<li><code>toc</code>: Boolean expected. Enables the creation of a table of contents.</li>
+</ul>
+<h1 id="3-themes">3. Themes</h1>
+<p>docgenerator provides some themes by default.</p>
+<p>These themes are:</p>
+<ul>
+<li>default</li>
+</ul>
+<p>However, it also provides you a way to define your own themes.</p>
+<p>When setting the theme, use a string like <code>custom:path/to/theme</code>. Example:</p>
+<pre><code>generator
+    .set( 'theme', 'custom:themes/mytheme' )
+    .generate();
+</code></pre>
+<p>This code will look in the <code>themes/mytheme</code> folder for CSS and JS files and add
+them to the generated documentation. For convenience, these files are sorted
+with the javascript <code>sort()</code> method.</p>
 
 <div class="copyright">Documentation generated with <a href="https://npmjs.org/package/docgenerator">docgenerator</a>.</div>
 <script>

@@ -17,7 +17,6 @@ files = files
 generator
     .set( 'title', 'Official documentation of docgenerator' )
     .set( 'toc', true )
-    .set( 'table', true )
     .set( 'files', files )
     .set( 'output', 'index.html' )
     .set( 'theme', 'default' )
