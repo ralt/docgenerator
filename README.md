@@ -25,13 +25,6 @@ Example
 
 An example can be seen [here][0].
 
-Dependencies
----
-
-This application runs with an external dependency:
-
-- [markdown_py][1]: See [its documentation][2] for how to install on your operating system.
-
 Contributors
 ---
 
@@ -43,6 +36,4 @@ License
 MIT License.
 
    [0]: https://github.com/Ralt/docgenerator/tree/master/example
-   [1]: http://www.freewisdom.org/projects/python-markdown/
-   [2]: http://www.freewisdom.org/projects/python-markdown/Installation
 
