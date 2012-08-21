@@ -1,3 +1,16 @@
-#someId {
-    position: relative;
+body {
+    width: 960px;
+    margin: auto;
 }
+
+.title {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+}
+
+.toc li {
+    list-style: none;
+}
+
