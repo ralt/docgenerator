@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Ralt/docgenerator.png)](http://travis-ci.org/Ralt/docgenerator)
 docgenerator
 ===
 
